@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>NoteLab</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .note {
+            border: 1px solid #ccc;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>NoteLab</h1>
+
+<p>Учебный менеджер заметок.</p>
+
+<textarea id="noteText" placeholder="Введите заметку"></textarea>
+<br>
+<button onclick="addNote()">Добавить заметку</button>
+
+<h2>Заметки</h2>
+
+<div id="notes"></div>
+
+<script>
+async function loadNotes() {
+    const response = await fetch('/api/notes');
+    const notes = await response.json();
+
+    const container = document.getElementById('notes');
+    container.innerHTML = '';
+
+    notes.forEach(note => {
+        const block = document.createElement('div');
+        block.className = 'note';
+        block.textContent = note.id + '. ' + note.text;
+        container.appendChild(block);
+    });
+}
+
+async function addNote() {
+    const input = document.getElementById('noteText');
+    const text = input.value.trim();
+
+    if (!text) {
+        return;
+    }
+
+    await fetch('/api/notes', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({text: text})
+    });
+
+    input.value = '';
+    loadNotes();
+}
+
+loadNotes();
+</script>
+
+</body>
+</html>

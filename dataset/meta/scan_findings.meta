@@ -1,0 +1,11 @@
+dataset_name: notelab_security_scan
+version: 1.0
+date: 2026-09-29
+target_source: Собственный учебный веб-сервер NoteLab
+target_ips: [10.0.2.15]
+project: NoteLab
+tools_used: Git, curl, jq, Nmap, Masscan, Nikto, Horusec, prips
+scan_scope: только собственный локальный лабораторный стенд
+github_ip_note: Meta API предоставляет IP-диапазоны сервисов GitHub, а не личный IP пользователя
+legal_compliance: сканирование выполнено только собственной тестовой целью
+expert: Алексей

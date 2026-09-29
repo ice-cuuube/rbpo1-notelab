@@ -1,0 +1,8 @@
+# Nmap 7.80 scan initiated Tue Sep 29 12:15:06 2026 as: nmap -p 8080 --script=http-security-headers -oN dataset/data/raw/nmap_security_headers.txt 10.0.2.15
+Nmap scan report for aleksey-VirtualBox (10.0.2.15)
+Host is up (0.000079s latency).
+
+PORT     STATE SERVICE
+8080/tcp open  http-proxy
+
+# Nmap done at Tue Sep 29 12:15:07 2026 -- 1 IP address (1 host up) scanned in 0.27 seconds

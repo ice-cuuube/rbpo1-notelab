@@ -1,0 +1,3 @@
+"Nikto - v2.1.5/2.1.5"
+"10.0.2.15","10.0.2.15","8080","","","","BaseHTTP/0.6 Python/3.10.6"
+"10.0.2.15","10.0.2.15SCALAR(0x5647764ef218)"8080","OSVDB-0","GET","/","The anti-clickjacking X-Frame-Options header is not present."

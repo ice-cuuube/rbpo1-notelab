@@ -1,0 +1,7 @@
+finding_id,tool,target_ip,port,severity,category,description,expert_comment
+1,Nmap,10.0.2.15,8080,Low,Open Port,Открыт TCP-порт 8080 веб-приложения NoteLab,Порт открыт намеренно для работы учебного приложения
+2,Nmap,10.0.2.15,8080,Low,Service,Обнаружен HTTP-сервис BaseHTTP/0.6 Python/3.10.6,В продакшне рекомендуется скрывать версию сервера
+3,Nmap,10.0.2.15,8080,Low,Missing Header,Не обнаружены заголовки безопасности (HSTS/CSP/X-Frame-Options),Добавить security headers на уровне reverse-proxy
+4,Masscan,10.0.2.15,8080,Info,Scan Result,Masscan не обнаружил открытый порт при сканировании собственной VM,Связано с особенностями VirtualBox NAT; наличие порта подтверждено Nmap
+5,Nikto,10.0.2.15,8080,Low,Missing Header,Отсутствует заголовок X-Frame-Options,Риск clickjacking; добавить X-Frame-Options: DENY
+6,Horusec,,,Info,Static Analysis,Критические уязвимости в исходном коде не обнаружены,Дополнительная ручная проверка кода всё равно рекомендуется
